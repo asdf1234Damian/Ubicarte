@@ -25,4 +25,5 @@
     <string name="registrar">Registrar</string>
     <string name="modelo">Modelo</string>
     <string name="placas">Placas</string>
+    <string name="title_activity_ubicacion">Map</string>
 </resources>
