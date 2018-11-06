@@ -26,4 +26,12 @@
     <string name="modelo">Modelo</string>
     <string name="placas">Placas</string>
     <string name="title_activity_ubicacion">Map</string>
+    <string name="title_activity_mapa_principal">MapaPrincipal</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="olvidaste_tu_contrase_a">Olvidaste tu contraseña?</string>
 </resources>

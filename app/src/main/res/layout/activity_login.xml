@@ -34,13 +34,12 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/design_default_color_primary_dark"
+            android:layout_width="200sp"
+            android:layout_height="200sp"
+            android:adjustViewBounds="true"
             android:contentDescription="@string/todo"
-            android:src="@mipmap/ic_launcher"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/LogoHD"/>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -74,7 +73,16 @@
                     android:singleLine="true"
                     android:importantForAutofill="no" tools:targetApi="o"/>
 
+
+
             </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:text="@string/olvidaste_tu_contrase_a"/>
 
             <Button
                 android:id="@+id/email_log_in_button"
@@ -89,7 +97,6 @@
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:text="@string/sign_in"
                 android:textStyle="bold" />
 
