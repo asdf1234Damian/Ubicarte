@@ -79,12 +79,14 @@
 
             </android.support.design.widget.TextInputLayout>
 
-            <TextView
+            <Button
+                android:id="@+id/reset_Contraseña"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:textSize="17sp"
-                android:text="@string/olvidaste_tu_contrase_a"/>
+                android:background="@null"
+                android:text="@string/olvidaste_tu_contrase_a" />
 
             <Button
                 android:id="@+id/email_log_in_button"

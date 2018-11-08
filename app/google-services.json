@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "274876051773",
+    "firebase_url": "https://ubicarte-b66f7.firebaseio.com",
+    "project_id": "ubicarte-b66f7",
+    "storage_bucket": "ubicarte-b66f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274876051773:android:71cc78be8171e9c9",
+        "android_client_info": {
+          "package_name": "com.example.damian.ubicarte"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "274876051773-21gob3rpi9rghqgcf8cq9ro6l1psjg0s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBd7cikRCL-NUPb1Y02LWe69cnBjkwgBLE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

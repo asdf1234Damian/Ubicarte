@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/automovil"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spinnerAutos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/modelo"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textAutoCorrect"
+                android:selectAllOnFocus="false"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/placas"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textAutoCorrect"
+                android:selectAllOnFocus="false"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Contraseña"
+                android:textSize="20sp" />
+
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:selectAllOnFocus="false"
+                android:singleLine="true" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@string/actualizar"/>
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
