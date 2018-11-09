@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -35,15 +34,15 @@ public class LoginActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         if (auth.getCurrentUser() != null) {
-            startActivity(new Intent(LoginActivity.this,LoginActivity.class));
+            startActivity(new Intent(LoginActivity.this, LoginActivity.class));
             finish();
         }
 
         // set the view now
         setContentView(R.layout.activity_login);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
         inputEmail = findViewById(R.id.email);
         inputPassword = findViewById(R.id.password);
@@ -58,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(LoginActivity.this, SignupActivity.class));
+                startActivity(new Intent(LoginActivity.this, NuevoUsuario.class));
             }
         });
 
@@ -106,26 +105,13 @@ public class LoginActivity extends AppCompatActivity {
                                 } else {
                                     //Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
                                     //startActivity(intent);
-                                    finish();
+                                    Toast.makeText(LoginActivity.this, R.string.test, Toast.LENGTH_LONG).show();
+                                    //finish();
                                 }
                             }
                         });
             }
         });
-
-/*
-    @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        return null;
     }
 
-    @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-
-    }
-
-    @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
-*/
-    }
 }
