@@ -15,7 +15,6 @@
     <string name="Contraseña">Contraseña</string>
     <string name="sign_in">Sign in</string>
     <string name="log_in">Log in</string>
-    <string name="correo_electronico">Correo Electronico</string>
     <string name="todo">TODO</string>
     <string name="nombre">Nombre</string>
     <string name="apellidos">Apellidos</string>
@@ -40,4 +39,8 @@
     <string name="actualizar">Actualizar</string>
     <string name="automovil">Automovil</string>
     <string name="test">Test</string>
+    <string name="enviar_correo_para_reiniciar">Enviar Correo para reiniciar</string>
+    <string name="correo_electronico">Correo Electronico</string>
+    <string name="ingresa_correo">Ingresa correo</string>
+    <string name="recuperar">Recuperar</string>
 </resources>

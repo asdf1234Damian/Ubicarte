@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -29,18 +28,14 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_login);
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
-
-        if (auth.getCurrentUser() != null) {
-            startActivity(new Intent(LoginActivity.this, LoginActivity.class));
-            finish();
-        }
-
+        //if (auth.getCurrentUser() != null) {
+            //startActivity(new Intent(LoginActivity.this, LoginActivity.class));
+            //finish();
+        //}
         // set the view now
-        setContentView(R.layout.activity_login);
-
         //Toolbar toolbar = findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
 
@@ -64,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(LoginActivity.this, ResetPasswordActivity.class));
+                startActivity(new Intent(LoginActivity.this, ResetPasswordActivity.class));
             }
         });
 
@@ -103,10 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(LoginActivity.this, getString(R.string.error_incorrect_password), Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    //Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
-                                    //startActivity(intent);
-                                    Toast.makeText(LoginActivity.this, R.string.test, Toast.LENGTH_LONG).show();
-                                    //finish();
+                                    startActivity(new Intent(LoginActivity.this, ResetPasswordActivity.class));
                                 }
                             }
                         });
