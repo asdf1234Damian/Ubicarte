@@ -43,4 +43,9 @@
     <string name="correo_electronico">Correo Electronico</string>
     <string name="ingresa_correo">Ingresa correo</string>
     <string name="recuperar">Recuperar</string>
+    <string name="nuevo_automovil">Nuevo Automovil</string>
+    <string name="enviar_alerta">Enviar Alerta</string>
+    <string name="ver_alerta_por_automovil">Ver Alerta por automovil</string>
+    <string name="confirmar_contrase_a">Confirmar Contraseña</string>
+    <string name="noCoinciden">Las contraseñas no coinciden</string>
 </resources>

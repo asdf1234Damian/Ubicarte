@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout_editor_absoluteY="81dp">
+    tools:layout_editor_absoluteY="25dp">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,7 +23,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/datos_del_usuario"
                 android:textAlignment="center"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -33,7 +34,9 @@
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textAutoCorrect" />
+                android:importantForAutofill="no"
+                android:inputType="textAutoCorrect"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -46,7 +49,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textAutoCorrect"
                 android:selectAllOnFocus="false"
-                android:singleLine="true" />
+                android:singleLine="true"
+                tools:ignore="Autofill,LabelFor" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -60,26 +64,11 @@
                 android:inputType="phone" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/correo_electronico"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/inEmail"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textAutoCorrect"
-                android:selectAllOnFocus="false"
-                android:singleLine="true"
-                tools:ignore="TextFields" />
-
-            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/datos_del_automovil"
                 android:textAlignment="center"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -103,39 +92,12 @@
                 android:layout_height="wrap_content"
                 android:inputType="text" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Contraseña"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/inPass"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/confirmar_contrase_a"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/inPassConf"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword" />
-
 
             <Button
-                android:text="@string/registrar"
-                android:id="@+id/registrationBttn"
-                android:onClick="registrationUser_click"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/activity_vertical_margin"
-                />
+                android:text="@string/registrar" />
 
         </LinearLayout>
     </ScrollView>
