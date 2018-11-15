@@ -48,4 +48,6 @@
     <string name="ver_alerta_por_automovil">Ver Alerta por automovil</string>
     <string name="confirmar_contrase_a">Confirmar Contraseña</string>
     <string name="noCoinciden">Las contraseñas no coinciden</string>
+    <string name="userReg">Usuario registrado</string>
+    <string name="plsStart">Usuario registrado, por favor inicie sesion</string>
 </resources>

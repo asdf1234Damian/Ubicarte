@@ -31,6 +31,7 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/inNombre"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textAutoCorrect" />
@@ -42,6 +43,7 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/inApellidos"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textAutoCorrect"
@@ -55,6 +57,7 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/inTelefono"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone" />
@@ -88,6 +91,7 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/inModelo"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textAutoCorrect" />
@@ -99,6 +103,7 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/inPlacas"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
