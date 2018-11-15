@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = inputEmail.getText().toString();
                 final String password = inputPassword.getText().toString();
-                startActivity(new Intent(LoginActivity.this, MapaPrincipal.class));
+
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
                     return;
@@ -99,12 +99,13 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(LoginActivity.this, getString(R.string.error_incorrect_password), Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    startActivity(new Intent(LoginActivity.this, ResetPasswordActivity.class));
+                                    Intent intent = new Intent(LoginActivity.this, MapaPrincipal.class);
+                                    startActivity(intent);
+                                    finish();
                                 }
                             }
                         });
             }
         });
     }
-
 }

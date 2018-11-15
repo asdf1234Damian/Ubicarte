@@ -1,5 +1,6 @@
 package com.example.damian.ubicarte;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -81,8 +82,7 @@ public class MapaPrincipal extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.menuActualizar) {
-            //startActivity(new Intent(MapaPrincipal.this, .class));
-            //Toast.makeText(MapaPrincipal.this,"Actualizar datos", Toast.LENGTH_LONG ).show();
+            startActivity(new Intent(MapaPrincipal.this, ActualizarActivity.class));
         } else if (id == R.id.menuEnviarAlerta) {
 
         } else if (id == R.id.menuNuevoAuto) {
