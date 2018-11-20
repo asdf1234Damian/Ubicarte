@@ -51,11 +51,11 @@
             android:value="@string/google_maps_key" /
         -->
 
+        <activity android:name=".ResetPasswordActivity" />
         <activity
             android:name=".MapaPrincipal"
             android:label="@string/title_activity_mapa_principal"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
-        <activity android:name=".ResetPasswordActivity"></activity>
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

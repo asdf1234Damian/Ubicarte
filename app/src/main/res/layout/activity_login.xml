@@ -47,6 +47,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/correo_electronico"
                     android:inputType="textEmailAddress"
+                    android:text="@string/asdf1234damian_gmail_com"
                     android:maxLines="1"
                     android:singleLine="true" />
 
@@ -58,6 +59,7 @@
 
                 <EditText
                     android:id="@+id/password"
+                    android:text="@string/ubi8256"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/Contraseña"

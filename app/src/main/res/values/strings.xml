@@ -50,4 +50,10 @@
     <string name="noCoinciden">Las contraseñas no coinciden</string>
     <string name="userReg">Usuario registrado</string>
     <string name="plsStart">Usuario registrado, por favor inicie sesion</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="holi_3">Holi :3</string>
+    <string name="ubi8256">Ubi8256</string>
+    <string name="asdf1234damian_gmail_com">asdf1234damian@gmail.com</string>
 </resources>
