@@ -1,6 +1,8 @@
 package com.example.damian.ubicarte;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -10,10 +12,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MapaPrincipal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -89,6 +96,13 @@ public class MapaPrincipal extends AppCompatActivity
         } else if (id == R.id.nav_nuevoAuto) {
             //TODO Implementar pantalla para nuevo carro.
             //fragTran.replace(R.id.)
+        } else if( id==R.id.nav_cerrarSesio){
+            FirebaseAuth auth;
+            auth = FirebaseAuth.getInstance();
+            auth.signOut();
+            Intent intent = new Intent(MapaPrincipal.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

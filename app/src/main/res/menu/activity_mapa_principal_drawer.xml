@@ -30,6 +30,11 @@
                 android:id="@+id/nav_enviarAlerta"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Enviar Alerta" />
+
+            <item
+                android:id="@+id/nav_cerrarSesio"
+                android:title="Cerrar Sesion"
+                android:icon="@android:drawable/ic_menu_close_clear_cancel"/>
         </menu>
     </item>
 

@@ -32,10 +32,12 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
-        //if (auth.getCurrentUser() != null) {
-            //startActivity(new Intent(LoginActivity.this, LoginActivity.class));
-            //finish();
-        //}
+        if (auth.getCurrentUser() != null) {
+            startActivity(new Intent(LoginActivity.this, LoginActivity.class));
+            Intent intent = new Intent(LoginActivity.this, MapaPrincipal.class);
+            startActivity(intent);
+            finish();
+        }
         // set the view now
         //Toolbar toolbar = findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);

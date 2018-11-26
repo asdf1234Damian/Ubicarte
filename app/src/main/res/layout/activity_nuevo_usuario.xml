@@ -33,6 +33,7 @@
             <EditText
                 android:id="@+id/inNombre"
                 android:layout_width="fill_parent"
+                android:text="Damian"
                 android:layout_height="wrap_content"
                 android:inputType="textAutoCorrect" />
 
@@ -45,6 +46,7 @@
             <EditText
                 android:id="@+id/inApellidos"
                 android:layout_width="fill_parent"
+                android:text="Meza"
                 android:layout_height="wrap_content"
                 android:inputType="textAutoCorrect"
                 android:selectAllOnFocus="false"
@@ -58,6 +60,7 @@
 
             <EditText
                 android:id="@+id/inTelefono"
+                android:text="5516391630"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone" />
@@ -70,6 +73,7 @@
 
             <EditText
                 android:id="@+id/inEmail"
+                android:text="@string/asdf1234damian_gmail_com"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textAutoCorrect"
@@ -92,6 +96,7 @@
 
             <EditText
                 android:id="@+id/inModelo"
+                android:text="Mini"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textAutoCorrect" />
@@ -105,6 +110,7 @@
             <EditText
                 android:id="@+id/inPlacas"
                 android:layout_width="fill_parent"
+                android:text="234-MGE"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
 
@@ -116,6 +122,7 @@
 
             <EditText
                 android:id="@+id/inPass"
+                android:text="Ubi8256"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword" />
@@ -128,6 +135,7 @@
 
             <EditText
                 android:id="@+id/inPassConf"
+                android:text="Ubi8256"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword" />

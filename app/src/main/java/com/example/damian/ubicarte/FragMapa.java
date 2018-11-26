@@ -7,8 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -16,6 +14,7 @@ import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,15 +22,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+
 public class FragMapa extends Fragment {
 
-    MapView mMapView;
     private GoogleMap googleMap;
+    private MapView mMapView;
+    private Marker marker;
+    private CameraPosition cameraPosition;
     private DatabaseReference mDatabase;
-    private String Car="Aqui va el modelo", plates="Aqui van las placas";
-    private LatLng currentPos= new LatLng(0,0);
-    private MarkerOptions marker;
-    LatLng Emilianoano= new LatLng(19.608236333333334, -99.24984083333334);
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,59 +37,53 @@ public class FragMapa extends Fragment {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mMapView = (MapView) rootView.findViewById(R.id.mapView);
         mMapView.onCreate(savedInstanceState);
-        mMapView.onResume(); // needed to get the map to display immediately
-        marker = new MarkerOptions();
-        marker.position(currentPos);
-        marker.title(Car);
-        marker.snippet(plates);
+        mMapView.onResume();
+
         try {
             MapsInitializer.initialize(getActivity().getApplicationContext());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-
-        ValueEventListener positionListener= new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Vehicle v =dataSnapshot.getValue(Vehicle.class);
-                //Toast.makeText(getActivity(), v.getModelo()+v.getPlacas(), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        };
-
-
-        mDatabase= FirebaseDatabase.getInstance().getReference();
-        /*
-        mDatabase.addValueEventListener(positionListener);*/
-
-
         mMapView.getMapAsync(new OnMapReadyCallback() {
             @SuppressLint("MissingPermission")
             @Override
             public void onMapReady(GoogleMap mMap) {
-                googleMap = mMap;
-                googleMap.addMarker(marker);
-                CameraPosition cameraPosition = new CameraPosition.Builder().target(currentPos).zoom(17).build();
-                googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                marker = mMap.addMarker(new MarkerOptions().position(new LatLng(0,0)));
+                cameraPosition = new CameraPosition.Builder().target(new LatLng(19.4326,-99.1332)).zoom(10).build();
+                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             }
+
         });
 
-
-
-
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                DataSnapshot Vehicles = dataSnapshot.child("Vehicles");
+                for (DataSnapshot ds: Vehicles.getChildren()){
+                    if (ds.child("Propietario").getValue().toString().equals("-LRKrb6n-zo-eZQ_xYXx")){
+                        marker.setTitle(ds.child("Modelo").getValue().toString());
+                        marker.setSnippet(ds.child("Placas").getValue().toString());
+                        double lat = Double.valueOf(ds.child("lat").getValue().toString());
+                        double lng = Double.valueOf(ds.child("lng").getValue().toString());
+                        marker.setPosition(new LatLng(lat,lng));
+                        //TODO a ver si se puede hacer que la camara siga el marcador :c
+                        return;
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
 
         return rootView;
     }
 
+
     @Override
     public void onResume() {
         super.onResume();
-        mDatabase.getKey();
-        marker.position(Emilianoano);
         mMapView.onResume();
     }
 
