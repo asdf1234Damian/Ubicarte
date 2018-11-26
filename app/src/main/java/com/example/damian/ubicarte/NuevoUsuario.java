@@ -51,7 +51,7 @@ public class NuevoUsuario extends AppCompatActivity{
             firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(),pass.getText().toString());
             String idU=mDatabase.push().getKey();
             User newUser= new User(nombre.getText().toString(),apellidos.getText().toString(),telefono.getText().toString(),email.getText().toString());
-            Vehicle newVehicle = new Vehicle(placas.getText().toString(),modelo.getText().toString(),idU);
+            Vehicle newVehicle = new Vehicle(placas.getText().toString(),modelo.getText().toString(),idU,"0.0","0.0");
             mDatabase.child("Users").child(idU).setValue(newUser);
             mDatabase.child("Vehicles").child(placas.getText().toString()).setValue(newVehicle);
             Toast.makeText(this, R.string.plsStart  , Toast.LENGTH_SHORT).show();

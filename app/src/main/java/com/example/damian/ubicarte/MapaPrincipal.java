@@ -29,7 +29,7 @@ public class MapaPrincipal extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Aqui cambiaria el carro, si lo hubiera implementado >:u", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -82,20 +82,14 @@ public class MapaPrincipal extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         FragmentTransaction fragTran= getSupportFragmentManager().beginTransaction();
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_mapa) {
+            fragTran.replace(R.id.fragContent, new FragMapa()).commit();
+        } else if (id == R.id.nav_datos) {
             fragTran.replace(R.id.fragContent, new FragActualizar()).commit();
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_nuevoAuto) {
+            //TODO Implementar pantalla para nuevo carro.
+            //fragTran.replace(R.id.)
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
