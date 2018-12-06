@@ -11,20 +11,54 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-
-/**
- * A login screen that offers login via email/password.
- */
 public class LoginActivity extends AppCompatActivity {
-
+    //UI
     private EditText inputEmail, inputPassword;
-    private FirebaseAuth auth;
     private ProgressBar progressBar;
+    //Firebase
+    private FirebaseAuth auth;
+    private DatabaseReference mDatabase;
+    //Metodo para guardar los datos del usuario que ha logeado
+    public void recuperaDatos(final String email){
+        //Recibe la referencia de la base de datos
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        //Se agrega un listener para un solo cambio (no se actualiza con cada cambio)
+        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //Recupera el id del usuario
+                DataSnapshot users = dataSnapshot.child("Users");
+                //Recorre la base buscando el usuario con el mismo correo
+                for (DataSnapshot ds: users.getChildren()){
+                    if (ds.child("CorreoElectronico").getValue().toString().equals(email)){
+                        Global.id=ds.getKey().toString();
+                        Toast.makeText(LoginActivity.this, Global.id, Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+                if (Global.id.isEmpty()){
+                    Toast.makeText(LoginActivity.this, "No se pudo recuperar el dato del usuario :c", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +66,12 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
-        if (auth.getCurrentUser() != null) {
-            startActivity(new Intent(LoginActivity.this, LoginActivity.class));
-            Intent intent = new Intent(LoginActivity.this, MapaPrincipal.class);
-            startActivity(intent);
-            finish();
-        }
+//        if (auth.getCurrentUser() != null) {
+//            startActivity(new Intent(LoginActivity.this, LoginActivity.class));
+//            Intent intent = new Intent(LoginActivity.this, MapaPrincipal.class);
+//            startActivity(intent);
+//            finish();
+//        }
         // set the view now
         //Toolbar toolbar = findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
@@ -69,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = inputEmail.getText().toString();
+                final String email = inputEmail.getText().toString();
                 final String password = inputPassword.getText().toString();
 
                 if (TextUtils.isEmpty(email)) {
@@ -101,6 +135,7 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(LoginActivity.this, getString(R.string.error_incorrect_password), Toast.LENGTH_LONG).show();
                                     }
                                 } else {
+                                    recuperaDatos(email);
                                     Intent intent = new Intent(LoginActivity.this, MapaPrincipal.class);
                                     startActivity(intent);
                                     finish();

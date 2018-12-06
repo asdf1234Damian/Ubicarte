@@ -24,7 +24,6 @@ import com.google.firebase.database.ValueEventListener;
 
 
 public class FragMapa extends Fragment {
-
     private GoogleMap googleMap;
     private MapView mMapView;
     private Marker marker;
@@ -61,7 +60,8 @@ public class FragMapa extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 DataSnapshot Vehicles = dataSnapshot.child("Vehicles");
                 for (DataSnapshot ds: Vehicles.getChildren()){
-                    if (ds.child("Propietario").getValue().toString().equals("-LRKrb6n-zo-eZQ_xYXx")){
+                    if (ds.child("Propietario").getValue().toString().equals(Global.id)){
+                        Global.vehiculos.add(new Vehicle());
                         marker.setTitle(ds.child("Modelo").getValue().toString());
                         marker.setSnippet(ds.child("Placas").getValue().toString());
                         double lat = Double.valueOf(ds.child("lat").getValue().toString());
