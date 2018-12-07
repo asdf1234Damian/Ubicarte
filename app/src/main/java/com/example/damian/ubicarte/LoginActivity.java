@@ -42,13 +42,10 @@ public class LoginActivity extends AppCompatActivity {
                 //Recorre la base buscando el usuario con el mismo correo
                 for (DataSnapshot ds: users.getChildren()){
                     if (ds.child("CorreoElectronico").getValue().toString().equals(email)){
+                        //Almacena
                         Global.id=ds.getKey().toString();
-                        Toast.makeText(LoginActivity.this, Global.id, Toast.LENGTH_SHORT).show();
-                        return;
+                        break;
                     }
-                }
-                if (Global.id.isEmpty()){
-                    Toast.makeText(LoginActivity.this, "No se pudo recuperar el dato del usuario :c", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -66,15 +63,13 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
-//        if (auth.getCurrentUser() != null) {
-//            startActivity(new Intent(LoginActivity.this, LoginActivity.class));
-//            Intent intent = new Intent(LoginActivity.this, MapaPrincipal.class);
-//            startActivity(intent);
-//            finish();
-//        }
-        // set the view now
-        //Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        if (auth.getCurrentUser() != null) {
+            recuperaDatos(auth.getCurrentUser().getEmail());
+            startActivity(new Intent(LoginActivity.this, LoginActivity.class));
+            Intent intent = new Intent(LoginActivity.this, MapaPrincipal.class);
+            startActivity(intent);
+            finish();
+        }
 
         inputEmail = findViewById(R.id.email);
         inputPassword = findViewById(R.id.password);
