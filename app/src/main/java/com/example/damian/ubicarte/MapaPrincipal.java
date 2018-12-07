@@ -38,6 +38,8 @@ public class MapaPrincipal extends AppCompatActivity
             public void onClick(View view) {
                 //Aumenta uno en el indice del carro seleccionado
                 Global.index=(Global.index+1)%Global.vehiculos.size();
+                //Mensaje de confirmacion
+                Toast.makeText(MapaPrincipal.this, "Carro seleccionado: "+Global.vehiculos.get(Global.index), Toast.LENGTH_SHORT).show();
                 //Vuelve a lanzar el mapa
                 FragmentTransaction fragTran= getSupportFragmentManager().beginTransaction();
                 fragTran.replace(R.id.fragContent, new FragMapa()).commit();
