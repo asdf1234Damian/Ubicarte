@@ -7,6 +7,7 @@ public class Global {
     public static String id;
     static ArrayList<String> vehiculos= new ArrayList<String>();
     static int index = 0;
+    static boolean locked = false;
 }
 
 

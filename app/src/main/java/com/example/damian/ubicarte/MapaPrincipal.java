@@ -30,7 +30,7 @@ public class MapaPrincipal extends AppCompatActivity
         setContentView(R.layout.activity_mapa_principal);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FragmentTransaction fragTran= getSupportFragmentManager().beginTransaction();
+        final FragmentTransaction fragTran= getSupportFragmentManager().beginTransaction();
         fragTran.replace(R.id.fragContent, new FragMapa()).commit();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
