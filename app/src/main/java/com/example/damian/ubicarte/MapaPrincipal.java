@@ -36,8 +36,11 @@ public class MapaPrincipal extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Aqui cambiaria el carro, si lo hubiera implementado >:u", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                //Aumenta uno en el indice del carro seleccionado
+                Global.index=(Global.index+1)%Global.vehiculos.size();
+                //Vuelve a lanzar el mapa
+                FragmentTransaction fragTran= getSupportFragmentManager().beginTransaction();
+                fragTran.replace(R.id.fragContent, new FragMapa()).commit();
             }
         });
 

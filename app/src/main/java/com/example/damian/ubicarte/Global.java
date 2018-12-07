@@ -1,11 +1,14 @@
 package com.example.damian.ubicarte;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class Global {
     public static String email;
     public static String id;
-    public static Vector<Vehicle> vehiculos;
+    static ArrayList<String> vehiculos= new ArrayList<String>();
+    static int index = 0;
 }
+
+
 
 
