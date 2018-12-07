@@ -44,17 +44,24 @@ public class NuevoUsuario extends AppCompatActivity{
 
 
     public void registrationUser_click(View view) {
-
+        //Comprueba que las contraseñas coincidan
         if(!pass.getText().toString().equals(passConf.getText().toString())){
             Toast.makeText(this, R.string.noCoinciden, Toast.LENGTH_SHORT).show();
         }else{
+            //Se crea la autentificacion usando email y contraseña
             firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(),pass.getText().toString());
+            //Se genera el ID automaticamente
             String idU=mDatabase.push().getKey();
+            //Se crea nuevo usuario
             User newUser= new User(nombre.getText().toString(),apellidos.getText().toString(),telefono.getText().toString(),email.getText().toString());
+            //Se crea el nuevo vehiculo con coordenadas 0,0 por default
             Vehicle newVehicle = new Vehicle(placas.getText().toString(),modelo.getText().toString(),idU,"0.0","0.0");
+            //Se agregan a su respectiva base de datos
             mDatabase.child("Users").child(idU).setValue(newUser);
             mDatabase.child("Vehicles").child(placas.getText().toString()).setValue(newVehicle);
+            //Mensaje de confirmacion
             Toast.makeText(this, R.string.plsStart  , Toast.LENGTH_SHORT).show();
+            //Regresa a la pantalla principal
             startActivity(new Intent(this, LoginActivity.class));
         }
     }
